@@ -39,3 +39,10 @@ void DialogLearn::doProcessbtn_ClorBoxClicked(){
         ui->lineEdit->setPalette(palette);
     }
 }
+
+void DialogLearn::on_pushButton_clicked()
+{
+
+    int i = QInputDialog::getInt(this, "Input","good",25,0,100,1);
+    qDebug() << i;
+}

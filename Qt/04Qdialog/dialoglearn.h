@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QColorDialog>
 #include <QPalette>
+#include <QInputDialog>
 QT_BEGIN_NAMESPACE
 namespace Ui { class DialogLearn; }
 QT_END_NAMESPACE
@@ -20,6 +21,8 @@ public:
 private slots:
     void doProcessbtn_msgClicked();
     void doProcessbtn_ClorBoxClicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::DialogLearn *ui;
