@@ -7,6 +7,8 @@
 #include <QColorDialog>
 #include <QPalette>
 #include <QInputDialog>
+#include <QProgressDialog>
+#include <QTimer>
 QT_BEGIN_NAMESPACE
 namespace Ui { class DialogLearn; }
 QT_END_NAMESPACE
@@ -24,7 +26,14 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+    void doProcessCancel();
+    void doProcessTimeOut();
+
 private:
     Ui::DialogLearn *ui;
+    QProgressDialog *P_dialog;
+    int step;
+    QTimer *myTimer;
 };
 #endif // DIALOGLEARN_H
