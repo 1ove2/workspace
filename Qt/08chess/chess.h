@@ -22,6 +22,7 @@ protected:
     void paintEvent(QPaintEvent *event);
     //resize事件,自动调整界面棋子棋盘
     void resizeEvent(QResizeEvent *event);
+    void mousePressEvent(QMouseEvent *event);
 
 private:
     //棋子宽度高度

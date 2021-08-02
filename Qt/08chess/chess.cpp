@@ -58,3 +58,14 @@ void chess::initChessState(){
     this->chessState[4][3] = this->White;
     this->chessState[4][4] = this->Black;
 }
+
+void chess::mousePressEvent(QMouseEvent *event){
+    int x = event->x();
+    int y = event->y();
+    if (x>start_x && x < (start_x + grid_w*8)&&(y > start_y && y <(start_y + 8*grid_h))){
+        int i = (x-start_x)/grid_w;
+        int j = (y-start_y)/grid_h;
+        this->chessState[i][j] = this->White;
+        this->update();
+    }
+}
