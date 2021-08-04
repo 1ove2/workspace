@@ -4,6 +4,9 @@ chess::chess(QWidget *parent)
     : QWidget(parent)
 {
     initChessState();
+    setChessPath(":/new/image/board.jpg",
+                 ":/new/image/black.png",
+                 ":/new/image/white.png");
 }
 
 chess::~chess()
@@ -18,7 +21,7 @@ void chess::paintEvent(QPaintEvent *event){
     mypen.setStyle(Qt::SolidLine);
     painter.setPen(mypen);
     //画背景图
-    painter.drawPixmap(this->rect(),QPixmap(":/new/image/board.jpg"));
+    painter.drawPixmap(this->rect(),QPixmap(this->backgroundPath));
     //画棋盘
     for(int i = 0; i <= 8; i++){
         painter.drawLine(start_x, start_y+i*this->grid_h,start_x+8*this->grid_w, start_y+i*this->grid_h);
@@ -29,10 +32,10 @@ void chess::paintEvent(QPaintEvent *event){
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
             if(this->chessState[i][j] == this->White){
-                painter.drawPixmap(start_x+grid_w*i,start_y+grid_h*j,grid_w,grid_h,QPixmap(":/new/image/white.png"));
+                painter.drawPixmap(start_x+grid_w*i,start_y+grid_h*j,grid_w,grid_h,QPixmap(this->whitePath));
             }
             else if(this->chessState[i][j] == this->Black){
-                painter.drawPixmap(start_x+grid_w*i,start_y+grid_h*j,grid_w,grid_h,QPixmap(":/new/image/black.png"));
+                painter.drawPixmap(start_x+grid_w*i,start_y+grid_h*j,grid_w,grid_h,QPixmap(this->blackPath));
             }
         }
     }
@@ -65,7 +68,18 @@ void chess::mousePressEvent(QMouseEvent *event){
     if (x>start_x && x < (start_x + grid_w*8)&&(y > start_y && y <(start_y + 8*grid_h))){
         int i = (x-start_x)/grid_w;
         int j = (y-start_y)/grid_h;
-        this->chessState[i][j] = this->White;
-        this->update();
+
+        emit this->pressPoint(i,j);
     }
+}
+
+void chess::setChessManInfo(void *p){
+    memcpy(this->chessState,p,sizeof(int)*64);
+    this->update();
+}
+
+void chess::setChessPath(QString Path, QString bPath, QString wPath){
+    this->backgroundPath = Path;
+    this->blackPath = bPath;
+    this->whitePath = wPath;
 }

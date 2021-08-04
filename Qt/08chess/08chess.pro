@@ -17,10 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    chess.cpp
+    chess.cpp \
+    mainwidget.cpp
 
 HEADERS += \
-    chess.h
+    chess.h \
+    mainwidget.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -29,3 +31,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     img.qrc
+
+FORMS += \
+    mainwidget.ui
