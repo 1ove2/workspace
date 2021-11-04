@@ -6,6 +6,7 @@ Customplot::Customplot(QWidget *parent) :
     ui(new Ui::Customplot)
 {
     ui->setupUi(this);
+    mcurve = qobject_cast<Curve*>(ui->wgt_plot);
 }
 
 Customplot::~Customplot()

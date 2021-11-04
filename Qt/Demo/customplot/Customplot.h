@@ -2,7 +2,7 @@
 #define CUSTOMPLOT_H
 
 #include <QWidget>
-
+#include "Curve.h"
 namespace Ui {
 class Customplot;
 }
@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::Customplot *ui;
+    Curve *mcurve;
 };
 
 #endif // CUSTOMPLOT_H

@@ -3,7 +3,7 @@
 #include <QWidget>
 #include "qcustomplot.h"
 
-class Curve : QCustomPlot
+class Curve : public QCustomPlot
 {
     Q_OBJECT
 public:

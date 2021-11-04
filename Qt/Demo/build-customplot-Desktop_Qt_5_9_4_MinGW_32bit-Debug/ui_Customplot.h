@@ -15,18 +15,23 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QWidget>
+#include <qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_Customplot
 {
 public:
+    QCustomPlot *wgt_plot;
 
     void setupUi(QWidget *Customplot)
     {
         if (Customplot->objectName().isEmpty())
             Customplot->setObjectName(QStringLiteral("Customplot"));
-        Customplot->resize(400, 300);
+        Customplot->resize(509, 401);
+        wgt_plot = new QCustomPlot(Customplot);
+        wgt_plot->setObjectName(QStringLiteral("wgt_plot"));
+        wgt_plot->setGeometry(QRect(40, 140, 431, 231));
 
         retranslateUi(Customplot);
 
