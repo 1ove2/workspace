@@ -47,7 +47,19 @@ Curve::Curve(QWidget *parent) :
     yAxis->setLabelColor(::Qt::red);                                       /* 轴标签颜色 */
     yAxis->ticker()->setTickCount(10);                                     /*11个主刻度*/
     yAxis->ticker()->setTickStepStrategy(QCPAxisTicker::tssReadability);   /*可读性优于设置*/
+    yAxis->setVisible(true);
+    this->legend->setVisible(true);                                        /* 设置图例*/
+    graph(0)->setName(QString("电流-功率(mW)"));                            /* 添加说明*/
+
+    QMargins marg(30,1,30,2);
+    this->legend->addElement(0,0,this->legend->item(0));
+    this->legend->setMargins(marg);
+    this->legend->setBorderPen(Qt::NoPen);
+    this->plotLayout()->insertRow(0);
+    this->plotLayout()->addElement(0,0,this->legend);
+    this->plotLayout()->setRowStretchFactor(0,0.001);
 }
+
 
 
 
