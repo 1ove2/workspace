@@ -1,0 +1,21 @@
+### Projects ###
+
+## All ##
+**/PssVersion.h
+tags
+
+## C/C++ ##
+**/*.exe
+**/*.o
+**/*.lib
+**/*.obj
+**/*.dll
+**/cscope.*
+
+## Qt ##
+**/*.pro.user
+**/*.pro.user*
+**/*.autosave
+build-*-Debug/
+build-*-Profile/
+build-*-Release/
