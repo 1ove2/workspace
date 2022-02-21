@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/icons">
-        <file>DeleteIP.svg</file>
-        <file>Wave.ico</file>
-    </qresource>
-</RCC>
