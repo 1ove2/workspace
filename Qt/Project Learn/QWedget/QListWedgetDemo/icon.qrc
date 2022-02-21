@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/AddInst.svg</file>
+        <file>icon/DeleteInst.svg</file>
+        <file>icon/DeleteIP.svg</file>
+        <file>icon/hide.png</file>
+        <file>icon/Inquire.svg</file>
+        <file>icon/mainBackground.png</file>
+        <file>icon/resize.png</file>
+        <file>icon/rightArrow1.png</file>
+        <file>icon/show.png</file>
+        <file>icon/updateCom.png</file>
+        <file>icon/Version.svg</file>
+    </qresource>
+</RCC>
