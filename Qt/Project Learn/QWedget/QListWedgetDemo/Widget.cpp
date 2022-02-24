@@ -31,7 +31,6 @@ void Widget::initWgt()
     // 1. 添加字符串项
     pListWgt->addItem("addItem: string");
 
-
     // 2. 添加其他特殊项
     QListWidgetItem* item = new QListWidgetItem(pListWgt);
     QPushButton* btn = new QPushButton();
