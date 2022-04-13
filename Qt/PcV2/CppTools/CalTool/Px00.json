@@ -1,0 +1,25 @@
+[
+    {
+        "//":"Px00基本参数",
+        "DEVICENAME":"Px00",
+        "VOLT_RANGE(V)":"300,100, 30,3  ,0.3,-300,-100,-30,-3,-0.3",
+		"VOLT_INDEX"   :"1  , 3 , 5 ,7  ,9  , 2  , 4  , 6 , 8, 10 ",
+        "CURR_LIMIT(A)":"0.1,0.1,0.1,0.1,0.1",
+		"CURR_RANGE(A)":"10 ,3  ,1  ,1e-1,1e-2,1e-3,1e-4,1e-5,1e-6,1e-7,1e-8,1e-9,-10,-3 ,-1 ,-1e-1,-1e-2,-1e-3,-1e-4,-1e-5,-1e-6,-1e-7,-1e-8,-1e-9",
+		"CURR_INDEX"   :"129,131,133,135 ,137 ,139 ,141 ,143 ,145 ,147 ,149 ,151 ,130,132,134,136  ,138  ,140  ,142  ,144  ,146  ,148  ,150  ,152  ",
+		"VOLT_LIMIT(V)":"3 ,3,3,3   ,3   ,3   ,3   ,3   ,3   ,3   ,3   ,3   ,3",
+        "CAL_ITEM":"VOLT,CURR",
+        "IP":"192.168.3.66",
+        "PORT":"5025"
+    },
+    {
+        "//":"Px00指令",
+        "CAL_ITEM":"0,1",
+        "SET_SOUR":":SOUR:FUNC VOLT",
+        "SET_SOUR_RANGE":":SOUR:VOLT:RANGE %1",
+        "SET_LIMT_RANGE":":SENS:VOLT:RANGE %1",
+        "SET_SOUR_LEV":":SOUR:VOLT:LEV %1",
+        "SET_LIMT_LEV":":SOUR:VOLT:ILIM %1",
+        "SET_NPLC":":SENS:VOLT:NPLC %1"
+    }
+]

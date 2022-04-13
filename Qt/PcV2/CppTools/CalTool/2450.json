@@ -1,0 +1,23 @@
+[
+    {
+        "//":"2450基本参数",
+        "DEVICENAME":"2450",
+        "VOLT_RANGE":"200V, 20V, 2V,  0.2V",
+        "CURR_RANGE":"1A,1e-1A,1e-2A,1e-3A,1e-4A,1e-5A,1e-6A",
+        "CAL_ITEM":"VOLT,CURR",
+        "IP":"192.168.3.66",
+        "PORT":"5025",
+        "VOLT_CMD":""
+    },
+    {
+        "//":"2450指令",
+        "CAL_ITEM":"VOLT",
+        "SET_SOUR_VOLT":":SOUR:FUNC VOLT",
+        "SET_SENS_CURR":"::SENS:FUNC \"CURR\"",
+        "SET_VOLT_RANGE":":SOUR:VOLT:RANG %1",
+        "SET_VOLT_LEV":":SOUR:VOLT:LEV %1",
+        "SET_LIMT_RANGE":":SENS:VOLT:RANG %1",
+        "SET_LIMT_LEV":":SOUR:VOLT:ILIM %1",
+        "SET_NPLC":":SENS:VOLT:NPLC %1"
+    }
+]
