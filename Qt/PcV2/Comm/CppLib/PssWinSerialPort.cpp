@@ -43,6 +43,10 @@ PssWinSerialPort::PssWinSerialPort(const char *name, i32 baudrate) :
     mBaudrate(baudrate)
 {
     i32 size = strlen(name);
+    if(size > 4)
+    {
+        snprintf(mName,7,"\\\\.\\");
+    }
     strncat(mName, name, size);
 }
 
@@ -55,12 +59,12 @@ int PssWinSerialPort::Open(Mode mode)
     /* step1: 打开串口 */
     mCom = CreateFileA(
                 mName,
-                GENERIC_READ | GENERIC_WRITE,
-                0,
-                NULL,
-                OPEN_EXISTING,
-                0,
-                NULL);
+                GENERIC_READ | GENERIC_WRITE,//支持读写
+                0,//独占方式，串口不支持共享
+                NULL,//安全属性指针，默认值为NULL
+                OPEN_EXISTING,//打开现有的串口文件
+                0,//0：同步方式，FILE_FLAG_OVERLAPPED：异步方式
+                NULL);//用于复制文件句柄，默认值为NULL，对串口而言该参数必须置为NULL
     if(INVALID_HANDLE_VALUE == mCom)
     {
         DWORD err = GetLastError();
@@ -81,12 +85,14 @@ int PssWinSerialPort::Open(Mode mode)
     SetupComm(mCom, 1024, 1024); /* 读写各1k */
 
     /* step4: 设置阻塞 */
+    //超时处理,单位：毫秒
+    //总超时＝时间系数×读或写的字符数＋时间常量
     COMMTIMEOUTS timeout;
     if(Mode::Block == mode)
     {
         timeout.ReadIntervalTimeout         = 0;
         timeout.ReadTotalTimeoutMultiplier  = 0;
-        timeout.ReadTotalTimeoutConstant    = 500;          /* 避免读持续阻塞,故设置100ms延迟 */
+        timeout.ReadTotalTimeoutConstant    = 50;          /* 避免读持续阻塞,故设置50ms延迟 */
 
         timeout.WriteTotalTimeoutConstant   = 0;
         timeout.WriteTotalTimeoutMultiplier = 0;
